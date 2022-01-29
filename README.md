@@ -15,6 +15,7 @@ This project goes over all of the fundamentals of React including...
 - Context API
 - HTTP Requests
 ### Usage
+
 #### Install dependencies
 `npm install`
 #### Run
