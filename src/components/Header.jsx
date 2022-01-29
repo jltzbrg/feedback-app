@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function Header({ text, bgColor, textColor }) {
+function Header({ text, bgColor, textColor }) {
   const headerStyles = {
     backgroundColor: bgColor,
     color: textColor,
@@ -26,3 +26,5 @@ Header.propTypes = {
   bgColor: PropTypes.string,
   textColor: PropTypes.string,
 };
+
+export default Header;
