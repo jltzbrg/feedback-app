@@ -5,6 +5,8 @@ import Header from './components/Header';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 import FeedbackForm from './components/FeedbackForm';
+import AboutIconLink from './components/AboutIconLink';
+//Pages
 import AboutPage from './pages/AboutPage';
 //Data
 import FeedbackData from './data/FeedbackData';
@@ -41,6 +43,7 @@ export default function App() {
             }></Route>
           <Route path='/about' element={<AboutPage />} />
         </Routes>
+        <AboutIconLink />
       </div>
     </Router>
   );
