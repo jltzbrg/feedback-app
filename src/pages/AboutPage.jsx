@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import Card from '../components/shared/Card';
+import { Link } from 'react-router-dom'
+import Card from '../components/shared/Card'
 
 function AboutPage() {
   return (
@@ -12,7 +12,7 @@ function AboutPage() {
         <Link to='/'>Back to Home</Link>
       </p>
     </Card>
-  );
+  )
 }
 
-export default AboutPage;
+export default AboutPage
