@@ -1,40 +1,43 @@
-import { useState } from 'react';
-import RatingSelect from './RatingSelect';
-import Card from './shared/Card';
-import Button from './shared/Button';
+import { useState, useContext } from 'react'
+import RatingSelect from './RatingSelect'
+import Card from './shared/Card'
+import Button from './shared/Button'
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackForm({ handleAdd }) {
-  const [text, setText] = useState('');
-  const [rating, setRating] = useState(10);
-  const [btnDisabled, setBtnDisabled] = useState(true);
-  const [message, setMessage] = useState('');
+function FeedbackForm() {
+  const [text, setText] = useState('')
+  const [rating, setRating] = useState(10)
+  const [btnDisabled, setBtnDisabled] = useState(true)
+  const [message, setMessage] = useState('')
+
+  const { addFeedback } = useContext(FeedbackContext)
 
   const handleTextChange = (e) => {
     if (text === '') {
-      setBtnDisabled(true);
-      setMessage(null);
+      setBtnDisabled(true)
+      setMessage(null)
     } else if (text !== '' && text.trim().length <= 10) {
-      setMessage('Text must be at least 10 characters');
-      setBtnDisabled(true);
+      setMessage('Text must be at least 10 characters')
+      setBtnDisabled(true)
     } else {
-      setMessage(null);
-      setBtnDisabled(false);
+      setMessage(null)
+      setBtnDisabled(false)
     }
 
-    setText(e.target.value);
-  };
+    setText(e.target.value)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (text.trim().length > 10) {
       const newFeedback = {
         text,
         rating,
-      };
-      handleAdd(newFeedback);
-      setText('');
+      }
+      addFeedback(newFeedback)
+      setText('')
     }
-  };
+  }
   return (
     <Card>
       <form onSubmit={handleSubmit}>
@@ -47,14 +50,14 @@ function FeedbackForm({ handleAdd }) {
             onChange={handleTextChange}
             value={text}
           />
-          <Button type='submit' isDisabled={btnDisabled}>
+          <Button type='submit' disabled={btnDisabled}>
             Send
           </Button>
         </div>
         {message && <div className='message'>{message}</div>}
       </form>
     </Card>
-  );
+  )
 }
 
-export default FeedbackForm;
+export default FeedbackForm
