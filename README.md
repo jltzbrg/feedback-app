@@ -13,10 +13,14 @@ This project goes over all of the fundamentals of React including...
 - Forms
 - Context API
 - HTTP Requests
+
 ### Usage
 
 #### Install dependencies
-`npm install`
+
+`npm install` or `yarn install`
+
 #### Run
-`npm run dev`
+
+`npm run dev` or `yarn dev`
 This will run JSON-server on port :5000 and React on port :3000
